@@ -1,191 +1,734 @@
-
-<html 
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>John Doe Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitCore Gym</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      color: #1a1a2e;
+      line-height: 1.6;
+      background: #fff;
+    }
+
+    /* ========== HERO ========== */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 40px;
+      gap: 60px;
+    }
+
+    .hero-content {
+      flex: 1;
+    }
+
+    .hero-content h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1.15;
+      color: #1a1a2e;
+      margin-bottom: 24px;
+    }
+
+    .hero-content p {
+      font-size: 1.1rem;
+      color: #555;
+      max-width: 480px;
+      margin-bottom: 36px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+    }
+
+    .btn-primary {
+      background: #1a1a2e;
+      color: #fff;
+      border: none;
+      padding: 14px 28px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn-primary:hover {
+      background: #333;
+    }
+
+    .btn-secondary {
+      background: #fff;
+      color: #1a1a2e;
+      border: 1.5px solid #ddd;
+      padding: 14px 28px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+
+    .btn-secondary:hover {
+      border-color: #999;
+    }
+
+    .hero-image {
+      flex: 1;
+      max-width: 520px;
+    }
+
+    .hero-image img {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+      object-fit: cover;
+    }
+
+    /* ========== WHY CHOOSE ========== */
+    .why-choose {
+      text-align: center;
+      padding: 80px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .why-choose h2 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .why-choose > p {
+      color: #666;
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto 48px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .card {
+      border-radius: 16px;
+      padding: 36px 28px;
+      text-align: center;
+    }
+
+    .card.blue { background: #eef3ff; }
+    .card.green { background: #e8f8ef; }
+    .card.purple { background: #f3eeff; }
+
+    .card-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 1.6rem;
+    }
+
+    .card.blue .card-icon { background: #3b82f6; color: #fff; }
+    .card.green .card-icon { background: #22c55e; color: #fff; }
+    .card.purple .card-icon { background: #a855f7; color: #fff; }
+
+    .card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: #555;
+      font-size: 0.95rem;
+    }
+
+    /* ========== MORE THAN JUST A GYM ========== */
+    .more-than {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 40px;
+    }
+
+    .more-than-image {
+      flex: 1;
+      max-width: 520px;
+    }
+
+    .more-than-image img {
+      width: 100%;
+      border-radius: 16px;
+      object-fit: cover;
+    }
+
+    .more-than-content {
+      flex: 1;
+    }
+
+    .more-than-content h2 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      margin-bottom: 32px;
+    }
+
+    .feature-list {
+      list-style: none;
+    }
+
+    .feature-list li {
+      margin-bottom: 28px;
+      padding-left: 20px;
+      border-left: 3px solid #1a1a2e;
+    }
+
+    .feature-list h3 {
+      font-size: 1.15rem;
+      margin-bottom: 6px;
+    }
+
+    .feature-list p {
+      color: #555;
+      font-size: 0.95rem;
+    }
+
+    /* ========== TESTIMONIALS ========== */
+    .testimonials {
+      text-align: center;
+      padding: 80px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .testimonials h2 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .testimonials > p {
+      color: #666;
+      font-size: 1.1rem;
+      margin-bottom: 48px;
+    }
+
+    .testimonial-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .testimonial {
+      border-radius: 16px;
+      padding: 32px 28px;
+      text-align: left;
+    }
+
+    .testimonial.blue { background: #eef3ff; }
+    .testimonial.green { background: #e8f8ef; }
+    .testimonial.purple { background: #f3eeff; }
+
+    .testimonial-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .testimonial-header img {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .testimonial-header h4 {
+      font-size: 1.05rem;
+    }
+
+    .testimonial-header span {
+      font-size: 0.85rem;
+      color: #666;
+    }
+
+    .testimonial p {
+      color: #444;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    /* ========== STATS ========== */
+    .stats {
+      max-width: 1100px;
+      margin: 0 auto 80px;
+      padding: 0 40px;
+    }
+
+    .stats-bar {
+      background: #f0f4f8;
+      border-radius: 16px;
+      display: flex;
+      justify-content: space-around;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .stat-item h3 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #1a1a2e;
+    }
+
+    .stat-item p {
+      color: #666;
+      font-size: 0.95rem;
+      margin-top: 4px;
+    }
+
+    
+    .cta {
+      text-align: center;
+      padding: 60px 40px 40px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .cta h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .cta > p {
+      color: #666;
+      font-size: 1.05rem;
+      margin-bottom: 40px;
+    }
+
+    .form-card {
+      background: #f8f9fb;
+      border-radius: 16px;
+      padding: 40px;
+      text-align: left;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      flex: 1;
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1.5px solid #ddd;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      background: #fff;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: #1a1a2e;
+    }
+
+    .form-group textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .form-submit {
+      width: 100%;
+      background: #1a1a2e;
+      color: #fff;
+      border: none;
+      padding: 16px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background 0.2s;
+    }
+
+    .form-submit:hover {
+      background: #333;
+    }
+
+    .form-note {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #888;
+      margin-top: 16px;
+    }
+
+    /* ========== FOOTER ========== */
+    footer {
+      background: #1a1a2e;
+      color: #ccc;
+      padding: 60px 40px 30px;
+      margin-top: 60px;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 40px;
+    }
+
+    .footer-brand h3 {
+      color: #fff;
+      font-size: 1.4rem;
+      margin-bottom: 14px;
+    }
+
+    .footer-brand p {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      max-width: 360px;
+      margin-bottom: 20px;
+    }
+
+    .social-links a {
+      color: #aaa;
+      margin-right: 16px;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .social-links a:hover {
+      color: #fff;
+    }
+
+    .footer-links h4,
+    .footer-contact h4 {
+      color: #fff;
+      font-size: 1.05rem;
+      margin-bottom: 16px;
+    }
+
+    .footer-links a {
+      display: block;
+      color: #aaa;
+      text-decoration: none;
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+
+    .footer-links a:hover {
+      color: #fff;
+    }
+
+    .footer-contact p {
+      font-size: 0.9rem;
+      margin-bottom: 6px;
+    }
+
+    .footer-contact strong {
+      color: #ddd;
+      display: block;
+      margin-top: 14px;
+      margin-bottom: 4px;
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 40px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid #333;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      color: #777;
+    }
+
+    .footer-bottom a {
+      color: #777;
+      text-decoration: none;
+      margin-left: 20px;
+    }
+
+    .footer-bottom a:hover {
+      color: #fff;
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 900px) {
+      .hero, .more-than {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .cards, .testimonial-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+      }
+
+      .stats-bar {
+        flex-wrap: wrap;
+        gap: 24px;
+      }
+
+      .form-row {
+        flex-direction: column;
+        gap: 0;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<h1 style="color: blue;">John Doe Portfolio</h1>
-<p style="color: blue;">Professional Web Developer</p>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Transform Your<br>Body at FitCore<br>Gym</h1>
+      <p>Join our premium fitness facility with state-of-the-art equipment, expert trainers, and a supportive community dedicated to your success.</p>
+      <div class="hero-buttons">
+        <button class="btn-primary">Start Your Journey</button>
+        <button class="btn-secondary">Learn More</button>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&q=80" alt="Modern gym interior with treadmills">
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE -->
+  <section class="why-choose">
+    <h2>Why Choose FitCore Gym</h2>
+    <p>We provide everything you need to achieve your fitness goals in a welcoming and professional environment.</p>
+    <div class="cards">
+      <div class="card blue">
+        <div class="card-icon">▢</div>
+        <h3>Premium Equipment</h3>
+        <p>Access to the latest fitness equipment from top brands, maintained to the highest standards for your safety and performance.</p>
+      </div>
+      <div class="card green">
+        <div class="card-icon">⬤</div>
+        <h3>Expert Trainers</h3>
+        <p>Certified personal trainers with years of experience ready to guide you through your fitness journey with personalized programs.</p>
+      </div>
+      <div class="card purple">
+        <div class="card-icon">▢</div>
+        <h3>Flexible Hours</h3>
+        <p>Open 24/7 to fit your schedule, whether you're an early bird or prefer late-night workouts.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MORE THAN JUST A GYM -->
+  <section class="more-than">
+    <div class="more-than-image">
+      <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&q=80" alt="People working out at the gym">
+    </div>
+    <div class="more-than-content">
+      <h2>More Than Just a Gym</h2>
+      <ul class="feature-list">
+        <li>
+          <h3>Group Classes</h3>
+          <p>Join energizing group fitness classes led by certified instructors</p>
+        </li>
+        <li>
+          <h3>Nutrition Guidance</h3>
+          <p>Get expert advice on meal planning and nutrition to complement your workouts</p>
+        </li>
+        <li>
+          <h3>Recovery Zone</h3>
+          <p>Dedicated space for stretching, yoga, and recovery with specialized equipment</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <h2>What Our Members Say</h2>
+    <p>Join thousands of satisfied members who have transformed their lives at FitCore</p>
+    <div class="testimonial-cards">
+      <div class="testimonial blue">
+        <div class="testimonial-header">
+          <img src="https://i.pravatar.cc/100?img=11" alt="David Martinez">
+          <div>
+            <h4>David Martinez</h4>
+            <span>Lost 35 lbs in 5 months</span>
+          </div>
+        </div>
+        <p>"FitCore completely changed my life. The trainers are amazing and the community is so supportive. I've never felt stronger or more confident."</p>
+      </div>
+      <div class="testimonial green">
+        <div class="testimonial-header">
+          <img src="https://i.pravatar.cc/100?img=12" alt="Mike Chen">
+          <div>
+            <h4>Mike Chen</h4>
+            <span>Gained 15 lbs muscle</span>
+          </div>
+        </div>
+        <p>"The equipment is top-notch and always clean. Being open 24/7 means I can work out whenever it fits my schedule. Highly recommend!"</p>
+      </div>
+      <div class="testimonial purple">
+        <div class="testimonial-header">
+          <img src="https://i.pravatar.cc/100?img=13" alt="James Rodriguez">
+          <div>
+            <h4>James Rodriguez</h4>
+            <span>Marathon finisher</span>
+          </div>
+        </div>
+        <p>"The personal training sessions helped me train for my first marathon. The expertise and motivation from the staff is unmatched."</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats">
+    <div class="stats-bar">
+      <div class="stat-item">
+        <h3>2500+</h3>
+        <p>Active Members</p>
+      </div>
+      <div class="stat-item">
+        <h3>15+</h3>
+        <p>Expert Trainers</p>
+      </div>
+      <div class="stat-item">
+        <h3>50+</h3>
+        <p>Group Classes</p>
+      </div>
+      <div class="stat-item">
+        <h3>24/7</h3>
+        <p>Access Hours</p>
+      </div>
+    </div>
+  </section>
 
 
-<h2 style="color: blue;" >About Me</h2>
+  <section class="cta">
+    <h2>Ready to Start Your Fitness Journey?</h2>
+    <p>Join FitCore today and get access to premium facilities, expert guidance, and a community that supports your goals.</p>
+    <div class="form-card">
+      <form>
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" placeholder="Enter your first name">
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" placeholder="Enter your last name">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="your.email@example.com">
+        </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" placeholder="(555) 123-4567">
+        </div>
+        <div class="form-group">
+          <label>Membership Type</label>
+          <select>
+            <option>Basic Membership - $29/month</option>
+            <option>Premium Membership - $49/month</option>
+            <option>Elite Membership - $79/month</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Fitness Goals</label>
+          <textarea placeholder="Tell us about your fitness goals and what you hope to achieve"></textarea>
+        </div>
+        <button type="submit" class="form-submit">Join FitCore Today</button>
+        <p class="form-note">By submitting this form, you agree to our terms of service and privacy policy.</p>
+      </form>
+    </div>
+  </section>
 
-<img src="images2/jo" alt="John Doe" width="200"><br>
-
-<a href="#"><img src="data:image/png;base64,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" alt="Facebook" width="35"></a>
-<a href="#"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAMAAABC4vDmAAAAZlBMVEULZsP///8AV74AYMHC1+/X5PQAVb4ebcWsxucAWb8AYsIWacTQ4PK3zeo5fcvz+PwAXcDJ2/Dk7fi90uyXt+Hq8fl1odgzeMmiveRzndeMsN5TjdEAUb1gk9NUic9EgMyFqtwrc8hQCiWbAAAE2UlEQVR4nO2c6ZqqMAyGgYJCWWUR0BHl/m/y4KBAFyDMocss3/wsPvM+SQjpkhqmhjJUA/D0/aDiwhGkIv4KVGFXdWQgyxMkP6oru9gEFVw6IIQNgcIoMaJLAIYKr4dEKNAAlhyuIQjq1GAkg6gXwg1rLRoqfiCJSD3WmY56CipoJCN9Yt2DJajQV8DUUfnhPJSLpcQ3K4zdOajqQxFTp0PFhwrVIXXCIQ8qMNRCGQELld6VxPgoFKUM1FkxU0d1pqFs5Uwd1YmEilUkTQaqiQkoVwOmjsoloHQwVPcGNlOo4EM1T6+PYAJ1SVTj9EouI1QRKc2bo3BUDFC2JkwdlT1A5Zp4r/NfPkDdtHj3nkK3AarUx33lGyrWhqmjil9QjqUaZZTnaAhlvaFsnaDsF9QJAIVR94fFzuQJqHVL4aTJM9sOL5EnGGu01GHlSRSFr0qnCI9icxrYfcltsmaTXoWmfygUboh1pFjo1xvqPt8xCQVHGVDLgZ48TEoiqy+g+7BDQ6VrL8YeUIuWwg27ZirwAw6LqXGKOEpgqQNzH2JCSuhsGgjFsdRZXKQDoW5sTN0lxNRyoJcMlMiiEJg8PZeGCj0ZUMt5qqEN1ciw1Erp0k97pLx7G0oXnE2ZXDlVwmqRZ12GYI8FpgMCar0cRo37iVXkd8GTaXjl2XnQs45l6VvCd7c2TRyeuwIy5qwboeRow2xGnv4sBRX87cOk5gamv0g86/CU5SWbPgBg97URoXIYKMmB9ywHIf9+zt3sqbC6XNsNO8BQ9/lBTGicYp3IgX6HAKFb5RDlThGeMTTnfnXe57yhfGrrN3xCoSYzWTm1AbMW2FJzUAYLhX2qpBhkwz5Q0JjaAIVbZpI4qKghttrffd4C07PAAExi93cfnjtR8xJgvri/+3ghPhVgu+W/oWj3reskHoq2FECr9f3uMQWQs7a2tfvbB1G9kq1UuG91V1+F+8xiZW1LmPuKwK2qzOEfUFzJ64IslV4iP/E85N8q3vDKgqmQPBVf0Pu/okPD+eqsnIAQ4j7i7UqOKfMAFGo/98U3cpUIt8zXEGyp3aCYHXLMLE6KhmLcV7AHQSzaVNItxXmzPLoSlR3ovMoE0+u4ogOdhgp8zq9Lyn+y3Zfx8uKR+rXslBDy/t9XoXad9+0GpaWldgr0n+8+PQP9J0H9Qvf9pED/fclTT0vpGFN/7vvW7tMzeWrpPh0tpaf7dAz0v5j6le7TMk9pCUUPZBJjyshdQrk/M/DgLZH71ENn4Dr62rkEjEjNDfD/HYI8xEJpeYJDTyiBB5S3aoDSskVFSygt257iVhsq3L6h9Gyl06Vl9N00qm97ZtqqhnkJt+kAJfIo/iYl/U6cxs3RmnSN9h2jY8O9HlBkw30ssJcCznQnryYwQw1CPXnfDTJcdwE6MSdUqDZpqFR1rOOSvRjEtNUyGYZtslBmrtRUaLItP72WJ1eYQj+mRwWIC4zU2QoTxxcIKDNXczUPNsgjFSSUaZcqLsUqbXMJynRqOXesjcJJTR9ooqG63H4X38E+QUJ39v43FsqMq/IgyYno0Faco3scqKe16hYlYpt3ME7QsWZ6BxegutjKHtejZ/XdE1yxQ9b8EPWgZXnH6yObOyg+B/Xpx8I52UJ0Wr4RcglKmf6goPoHYj9aapDNupcAAAAASUVORK5CYII=" alt="LinkedIn" width="35"></a>
-<a href="#"><img src="data:image/jpeg;base64,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" alt="Instagram" width="35"></a>
-<a href="#"><img src="data:image/png;base64,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" alt="GitHub" width="35"></a>
-
-<p>Hello! I'm John Doe, a passionate web developer with over 5 years of experience in creating innovative digital solutions. I specialize in full-stack development and have a keen interest in modern web technologies.</p>
-
-<p>My journey in web development started during my college years, and since then I've been continuously learning and adapting to new technologies. I believe in writing clean, efficient code and creating user-friendly interfaces.</p>
-
-<h3 style="color: blue;">Skills</h3>
-<ul>
-  <li><a href="#">HTML5</a></li>
-  <li><a href="#">CSS3</a></li>
-  <li><a href="#">JavaScript</a></li>
-  <li><a href="#">React.js</a></li>
-  <li><a href="#">Angular</a></li>
-</ul>
-
-
-<h2>Experience Timeline</h2>
-
-<table border="1" cellpadding="10" cellspacing="0">
-  <caption>Professional Experience Overview</caption>
-  <thead style="background-color: cadetblue;">
-    <tr>
-      <th>Company</th>
-      <th>Logo</th>
-      <th>Role</th>
-      <th>Key Achievements</th>
-      <th>Dates</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td rowspan="2">TechCorp Solutions</td>
-      <td rowspan="2"><img src="images2/techcorp_logo - Copy (10).png" alt="TechCorp Logo" width="60"></td>
-      <td>Senior Full Stack Developer</td>
-      <td>
-        <ul>
-          <li>Lead development of web applications</li>
-          <li>Mentor junior developers</li>
-          <li>Architect scalable solutions</li>
-        </ul>
-      </td>
-      <td>Jan 2023 - Present</td>
-    </tr>
-    <tr>
-      <td>Full Stack Developer</td>
-      <td>
-        <ul>
-          <li>Developed responsive web applications</li>
-          <li>Collaborated with design teams</li>
-          <li>Optimized application performance</li>
-        </ul>
-      </td>
-      <td>2021 - 2023</td>
-    </tr>
-    <tr>
-      <td>Digital Agency Pro</td>
-      <td><img src="images2/digitalagency_logo.png" alt="Digital Agency Pro Logo" width="60"></td>
-      <td>Frontend Developer</td>
-      <td>
-        <ul>
-          <li>Built user interfaces from mockups</li>
-          <li>Implemented responsive designs</li>
-          <li>Conducted code reviews</li>
-        </ul>
-      </td>
-      <td>2019 - 2020</td>
-    </tr>
-    <tr>
-      <td>Web Design Studio</td>
-      <td><img src="images2/webdesignstudio_logo (1).png" alt="Web Design Studio Logo" width="60"></td>
-      <td>Junior Web Developer</td>
-      <td>
-        <ul>
-          <li>Maintained existing websites</li>
-          <li>Fixed bugs and implemented features</li>
-          <li>Learned best practices</li>
-        </ul>
-      </td>
-      <td>2019 - 2020</td>
-    </tr>
-  </tbody>
-  <tfoot>
-    <tr>
-      <td colspan="5"><strong>Total Experience: 5+ years in web development</strong></td>
-    </tr>
-  </tfoot>
-</table>
-
-
-<h2 style="color: blue;" >Contact Me</h2>
-<p>Feel free to reach out to me using the form below. I'd love to hear from you!</p>
-
-<form action="#" method="post">
-
-  <fieldset>
-    <legend>Personal Information</legend>
-
-    <label for="firstName">First Name: *</label>
-    <input type="text" id="firstName" name="firstName" required><br><br>
-
-    <label for="lastName">Last Name: *</label>
-    <input type="text" id="lastName" name="lastName" required><br><br>
-
-    <label for="email">Email Address: *</label>
-    <input type="email" id="email" name="email" required><br><br>
-
-    <label for="phone">Phone Number:</label>
-    <input type="tel" id="phone" name="phone"><br><br>
-
-    <label for="meetingDate">Preferred Meeting Date:</label>
-    <input type="date" id="meetingDate" name="meetingDate"><br><br>
-
-    <label for="contactTime">Best Time to Contact:</label>
-    <input type="time" id="contactTime" name="contactTime"><br>
-  </fieldset>
-
-  <fieldset>
-    <legend>Project Details</legend>
-
-    <label for="projectType">Project Type: *</label>
-    <input type="text" id="projectType" name="projectType" required><br><br>
-
-    <label for="projectDescription">Project Description: *</label>
-    <textarea id="projectDescription" name="projectDescription" required></textarea><br><br>
-
-    <label>Budget Range:</label><br>
-    <input type="radio" id="budget1" name="budget" value="under5000">
-    <label for="budget1">Under $5,000</label><br>
-
-    <input type="radio" id="budget2" name="budget" value="5000-10000">
-    <label for="budget2">$5,000 - $10,000</label><br>
-
-    <input type="radio" id="budget3" name="budget" value="10000-25000">
-    <label for="budget3">$10,000 - $25,000</label><br>
-
-    <input type="radio" id="budget4" name="budget" value="over25000">
-    <label for="budget4">Over $25,000</label><br><br>
-
-    <label>Services Required (Check all that apply):</label><br>
-    <input type="checkbox" id="service1" name="services" value="uiux">
-    <label for="service1">UI/UX Design</label><br>
-
-    <input type="checkbox" id="service2" name="services" value="frontend">
-    <label for="service2">Frontend Development</label><br>
-
-    <input type="checkbox" id="service3" name="services" value="backend">
-    <label for="service3">Backend Development</label><br>
-
-    <input type="checkbox" id="service4" name="services" value="hosting">
-    <label for="service4">Hosting &amp; Deployment</label><br>
-
-    <input type="checkbox" id="service5" name="services" value="maintenance">
-    <label for="service5">Maintenance &amp; Support</label><br><br>
-
-    <label for="source">How did you hear about me?</label>
-    <select id="source" name="source">
-      <option value="">-- select source --</option>
-      <option value="google">Google Search</option>
-      <option value="social">Social Media</option>
-      <option value="referral">Referral</option>
-      <option value="other">Other</option>
-    </select>
-  </fieldset>
-
-  <br>
-  <button type="submit" style="background-color: rgb(186, 11, 11);">Send Message</button>
-  <button type="reset" style="background-color: rgb(55, 251, 251);">Clear Form</button>
-
-</form>
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h3>FitCore</h3>
+        <p>Transform your body and mind at our premium fitness facility. Join thousands of members who have achieved their fitness goals with our expert guidance and state-of-the-art equipment.</p>
+        <div class="social-links">
+          <a href="#">Facebook</a>
+          <a href="#">Instagram</a>
+          <a href="#">Twitter</a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <a href="#">Home</a>
+        <a href="#">Why Choose Us</a>
+        <a href="#">Reviews</a>
+        <a href="#">Membership Form</a>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact Info</h4>
+        <strong>Address</strong>
+        <p>123 Fitness Street, Downtown City, DC 12345</p>
+        <strong>Phone</strong>
+        <p>(555) 123-4567</p>
+        <strong>Hours</strong>
+        <p>Open 24/7</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 FitCore Gym. All rights reserved.</span>
+      <div>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Cookie Policy</a>
+      </div>
+    </div>
+  </footer>
 
 </body>
 </html>
