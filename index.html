@@ -1,1126 +1,557 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The UX Review</title>
+  <title>مدبّر | إدارة أموالك بذكاء</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Exo', sans-serif;
-      background: #fafafa;
-      color: #111;
-      overflow-x: hidden;
-    }
-
-    /* ===== Custom Brutal Styles ===== */
-    .brutal-border {
-      border: 3px solid #000;
-    }
-    .brutal-border-sm {
-      border: 2px solid #000;
-    }
-    .brutal-shadow {
-      box-shadow: 6px 6px 0 #000;
-    }
-    .brutal-shadow-sm {
-      box-shadow: 4px 4px 0 #000;
-    }
-    .brutal-shadow-xs {
-      box-shadow: 3px 3px 0 #000;
-    }
-    .hover-lift:hover {
-      transform: translate(-3px, -3px);
-      box-shadow: 8px 8px 0 #000;
-    }
-
-    /* ===== Header ===== */
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      padding: 16px 20px;
-    }
-    .header-inner {
-      max-width: 1280px;
-      margin: 0 auto;
-      background: #fff;
-      border: 3px solid #000;
-      border-radius: 16px;
-      box-shadow: 4px 4px 0 #000;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 12px 24px;
-    }
-    .logo {
-      font-size: 28px;
-      font-weight: 900;
-    }
-    .logo span:first-child { color: #111; }
-    .logo span:last-child { color: #f97316; }
-
-    nav ul {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      list-style: none;
-      font-weight: 700;
-      font-size: 14px;
-    }
-    nav a {
-      text-decoration: none;
-      color: #111;
-      transition: color 0.2s;
-    }
-    nav a:hover { color: #f97316; }
-    nav .star {
-      color: #d1d5db;
-      font-size: 10px;
-      margin-left: 8px;
-    }
-
-    .subscribe-btn {
-      background: #fbbf24;
-      color: #000;
-      font-weight: 800;
-      padding: 10px 22px;
-      border: 2px solid #000;
-      border-radius: 999px;
-      text-decoration: none;
-      box-shadow: 3px 3px 0 #000;
-      transition: transform 0.15s;
-    }
-    .subscribe-btn:hover {
-      transform: translate(-2px, -2px);
-      box-shadow: 5px 5px 0 #000;
-    }
-
-    /* ===== Hero ===== */
-    #hero {
-      background: #fde047;
-      padding: 140px 20px 80px;
-      position: relative;
-      overflow: hidden;
-      border-bottom: 4px solid #000;
-    }
-    .hero-container {
-      max-width: 1280px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: center;
-    }
-    .trending-badge {
-      display: inline-block;
-      background: #000;
-      color: #fff;
-      padding: 8px 16px;
-      font-weight: 800;
-      font-size: 14px;
-      transform: rotate(-2deg);
-      margin-bottom: 24px;
-      border: 2px solid #000;
-      box-shadow: 3px 3px 0 #000;
-    }
-    .hero-title {
-      font-size: 72px;
-      font-weight: 900;
-      line-height: 0.95;
-      margin-bottom: 24px;
-    }
-    .hero-title .black { color: #111; }
-    .hero-title .red { color: #ef4444; }
-    .hero-title .blue { color: #3b82f6; }
-
-    .hero-desc {
-      background: #fff;
-      border: 2px solid #000;
-      padding: 16px 20px;
-      font-size: 18px;
-      font-weight: 500;
-      max-width: 480px;
-      margin-bottom: 32px;
-      box-shadow: 4px 4px 0 #000;
-    }
-
-    .hero-btns {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-    .btn-primary {
-      background: #000;
-      color: #fff;
-      font-weight: 800;
-      font-size: 18px;
-      padding: 16px 28px;
-      border: 3px solid #000;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      transition: transform 0.15s;
-    }
-    .btn-primary:hover { transform: translate(3px, 3px); }
-    .btn-secondary {
-      background: #fff;
-      color: #000;
-      font-weight: 800;
-      font-size: 18px;
-      padding: 16px 28px;
-      border: 3px solid #000;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      transition: transform 0.15s;
-    }
-    .btn-secondary:hover { transform: translate(3px, 3px); }
-
-    .hero-image-wrap {
-      position: relative;
-      transform: rotate(2deg);
-    }
-    .hero-image {
-      width: 100%;
-      max-width: 520px;
-      border: 4px solid #000;
-      box-shadow: 8px 8px 0 #000;
-      background: #fff;
-    }
-    .featured-badge {
-      position: absolute;
-      top: -16px;
-      right: -16px;
-      background: #ef4444;
-      color: #fff;
-      font-weight: 800;
-      padding: 8px 16px;
-      border: 2px solid #000;
-      transform: rotate(12deg);
-      box-shadow: 3px 3px 0 #000;
-    }
-
-    /* decorative diamonds */
-    .diamond {
-      position: absolute;
-      width: 80px;
-      height: 80px;
-      background: #fbbf24;
-      transform: rotate(45deg);
-      opacity: 0.6;
-      z-index: 0;
-    }
-    .diamond-1 { top: 60px; left: -30px; }
-    .diamond-2 { bottom: 40px; right: 40px; width: 60px; height: 60px; }
-
-    /* ===== Latest Articles ===== */
-    #articles {
-      padding: 80px 20px;
-      background: #f5f5f5;
-      border-bottom: 4px solid #000;
-    }
-    .section-container {
-      max-width: 1280px;
-      margin: 0 auto;
-    }
-    .section-header {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      margin-bottom: 40px;
-    }
-    .section-header h2 {
-      font-size: 42px;
-      font-weight: 900;
-    }
-    .fresh-badge {
-      background: #000;
-      color: #fff;
-      padding: 8px 16px;
-      font-weight: 800;
-      transform: rotate(2deg);
-      border: 2px solid #000;
-      box-shadow: 3px 3px 0 #000;
-    }
-
-    .articles-grid {
-      display: grid;
-      grid-template-columns: 1fr 340px;
-      gap: 40px;
-    }
-
-    .article-card {
-      background: #fff;
-      border: 3px solid #000;
-      box-shadow: 5px 5px 0 #000;
-      padding: 28px;
-      margin-bottom: 28px;
-      transition: all 0.25s;
-    }
-    .article-card:hover {
-      transform: translate(-4px, -4px);
-      box-shadow: 9px 9px 0 #000;
-    }
-    .article-inner {
-      display: flex;
-      gap: 24px;
-    }
-    .article-img-wrap {
-      position: relative;
-      flex-shrink: 0;
-    }
-    .article-img {
-      width: 160px;
-      height: 128px;
-      object-fit: cover;
-      border: 2px solid #000;
-      background: #e5e5e5;
-    }
-    .tag-new {
-      position: absolute;
-      top: -8px;
-      right: -8px;
-      background: #ef4444;
-      color: #fff;
-      font-size: 11px;
-      font-weight: 800;
-      padding: 4px 8px;
-      border: 2px solid #000;
-      transform: rotate(12deg);
-    }
-    .tag-hot {
-      position: absolute;
-      top: -8px;
-      right: -8px;
-      background: #3b82f6;
-      color: #fff;
-      font-size: 11px;
-      font-weight: 800;
-      padding: 4px 8px;
-      border: 2px solid #000;
-      transform: rotate(-12deg);
-    }
-    .tag-viral {
-      position: absolute;
-      top: -8px;
-      right: -8px;
-      background: #a855f7;
-      color: #fff;
-      font-size: 11px;
-      font-weight: 800;
-      padding: 4px 8px;
-      border: 2px solid #000;
-      transform: rotate(12deg);
-    }
-    .cat-badge {
-      display: inline-block;
-      font-size: 12px;
-      font-weight: 800;
-      padding: 4px 12px;
-      border: 2px solid #000;
-      margin-bottom: 12px;
-      box-shadow: 2px 2px 0 #000;
-    }
-    .cat-tech { background: #fde047; transform: rotate(-1deg); }
-    .cat-design { background: #86efac; transform: rotate(1deg); }
-    .cat-culture { background: #f9a8d4; transform: rotate(-1deg); }
-
-    .article-card h3 {
-      font-size: 22px;
-      font-weight: 800;
-      margin-bottom: 10px;
-    }
-    .article-card p {
-      font-size: 16px;
-      line-height: 1.5;
-      margin-bottom: 16px;
-      color: #333;
-    }
-    .meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      font-size: 13px;
-      font-weight: 600;
-      color: #444;
-    }
-    .meta i { margin-right: 6px; }
-    .meta .likes { color: #ef4444; }
-
-    /* Sidebar */
-    .sidebar-card {
-      background: #fff;
-      border: 3px solid #000;
-      box-shadow: 5px 5px 0 #000;
-      padding: 28px;
-      margin-bottom: 28px;
-    }
-    .sidebar-card h4 {
-      font-size: 26px;
-      font-weight: 900;
-      margin-bottom: 20px;
-    }
-    .trending-item {
-      display: flex;
-      gap: 16px;
-      margin-bottom: 20px;
-      cursor: pointer;
-    }
-    .trending-num {
-      font-size: 32px;
-      font-weight: 900;
-      line-height: 1;
-    }
-    .num-1 { color: #ef4444; }
-    .num-2 { color: #3b82f6; }
-    .num-3 { color: #a855f7; }
-    .trending-item h5 {
-      font-size: 16px;
-      font-weight: 800;
-      margin-bottom: 4px;
-    }
-    .trending-item p {
-      font-size: 13px;
-      color: #666;
-    }
-
-    .cat-list span {
-      display: block;
-      font-weight: 800;
-      padding: 12px 16px;
-      border: 2px solid #000;
-      margin-bottom: 10px;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .cat-list span:hover {
-      transform: translate(-2px, -2px);
-      box-shadow: 4px 4px 0 #000;
-    }
-    .cat-tech-bg { background: #fef9c3; }
-    .cat-design-bg { background: #dcfce7; }
-    .cat-culture-bg { background: #fce7f3; }
-    .cat-opinion-bg { background: #dbeafe; }
-    .cat-tutorials-bg { background: #f3e8ff; }
-
-    .load-more {
-      display: block;
-      width: fit-content;
-      margin: 30px auto 0;
-      background: #000;
-      color: #fff;
-      font-weight: 800;
-      font-size: 16px;
-      padding: 14px 28px;
-      border: 3px solid #000;
-      text-decoration: none;
-      transition: transform 0.15s;
-    }
-    .load-more:hover { transform: translate(3px, 3px); }
-
-    /* ===== Authors ===== */
-    #authors {
-      background: #fde047;
-      padding: 80px 20px;
-      text-align: center;
-      border-bottom: 4px solid #000;
-      position: relative;
-    }
-    #authors h2 {
-      font-size: 48px;
-      font-weight: 900;
-      margin-bottom: 8px;
-    }
-    #authors .subtitle {
-      font-size: 18px;
-      margin-bottom: 12px;
-    }
-    .underline {
-      width: 80px;
-      height: 6px;
-      background: #000;
-      margin: 0 auto 50px;
-    }
-
-    .authors-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 30px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .author-card {
-      background: #fff;
-      border: 3px solid #000;
-      box-shadow: 6px 6px 0 #000;
-      padding: 32px 24px;
-      transition: all 0.25s;
-    }
-    .author-card:hover {
-      transform: translate(-4px, -4px);
-      box-shadow: 10px 10px 0 #000;
-    }
-    .author-1 { background: #fef9c3; }
-    .author-2 { background: #dcfce7; }
-    .author-3 { background: #fce7f3; }
-
-    .author-img-wrap {
-      position: relative;
-      width: 130px;
-      height: 130px;
-      margin: 0 auto 20px;
-    }
-    .author-img {
-      width: 130px;
-      height: 130px;
-      object-fit: cover;
-      border: 3px solid #000;
-      background: #ddd;
-    }
-    .author-badge {
-      position: absolute;
-      top: -10px;
-      right: -20px;
-      color: #fff;
-      font-size: 11px;
-      font-weight: 800;
-      padding: 5px 10px;
-      border: 2px solid #000;
-    }
-    .badge-founder { background: #ef4444; transform: rotate(12deg); }
-    .badge-lead { background: #3b82f6; transform: rotate(-8deg); }
-    .badge-viral { background: #a855f7; transform: rotate(25deg); }
-
-    .author-card h3 {
-      font-size: 26px;
-      font-weight: 900;
-      margin-bottom: 6px;
-    }
-    .author-role {
-      font-weight: 700;
-      color: #555;
-      margin-bottom: 14px;
-    }
-    .author-bio {
-      font-size: 15px;
-      line-height: 1.5;
-      margin-bottom: 20px;
-    }
-    .socials {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-    }
-    .socials a {
-      width: 44px;
-      height: 44px;
-      background: #000;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 2px solid #000;
-      text-decoration: none;
-      transition: all 0.2s;
-    }
-    .socials a:hover {
-      transform: translate(-2px, -2px);
-      box-shadow: 3px 3px 0 #000;
-    }
-
-    /* ===== Community ===== */
-    #community {
-      padding: 80px 20px;
-      background: #f5f5f5;
-      border-bottom: 4px solid #000;
-    }
-    #community h2 {
-      font-size: 48px;
-      font-weight: 900;
-      text-align: center;
-      margin-bottom: 8px;
-    }
-    #community .subtitle {
-      text-align: center;
-      font-size: 18px;
-      margin-bottom: 12px;
-    }
-    .community-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      max-width: 1100px;
-      margin: 50px auto 0;
-      align-items: start;
-    }
-    .community-left h3 {
-      font-size: 32px;
-      font-weight: 900;
-      margin-bottom: 20px;
-    }
-    .community-box {
-      background: #fff;
-      border: 2px solid #000;
-      padding: 20px;
-      margin-bottom: 28px;
-      font-size: 16px;
-      line-height: 1.5;
-      box-shadow: 4px 4px 0 #000;
-    }
-    .benefits {
-      list-style: none;
-      margin-bottom: 28px;
-    }
-    .benefits li {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 14px;
-      font-weight: 600;
-      font-size: 16px;
-    }
-    .benefit-icon {
-      width: 36px;
-      height: 36px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-size: 16px;
-      flex-shrink: 0;
-    }
-    .icon-red { background: #ef4444; }
-    .icon-blue { background: #3b82f6; }
-    .icon-purple { background: #a855f7; }
-    .icon-green { background: #22c55e; }
-
-    .join-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: #000;
-      color: #fff;
-      font-weight: 800;
-      font-size: 18px;
-      padding: 16px 32px;
-      border: 3px solid #000;
-      text-decoration: none;
-      transition: transform 0.15s;
-    }
-    .join-btn:hover { transform: translate(3px, 3px); }
-
-    .testimonial {
-      background: #fff;
-      border: 2px solid #000;
-      padding: 20px;
-      margin-bottom: 16px;
-      box-shadow: 4px 4px 0 #000;
-    }
-    .testimonial.pink { background: #fdf2f8; }
-    .testimonial.blue { background: #eff6ff; }
-    .testimonial.purple { background: #faf5ff; }
-    .testimonial p {
-      font-size: 15px;
-      line-height: 1.5;
-      margin-bottom: 14px;
-    }
-    .testimonial-author {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .testimonial-author img {
-      width: 42px;
-      height: 42px;
-      border-radius: 4px;
-      object-fit: cover;
-      background: #ddd;
-    }
-    .testimonial-author strong {
-      display: block;
-      font-size: 15px;
-    }
-    .testimonial-author span {
-      font-size: 13px;
-      color: #666;
-    }
-
-    /* ===== Footer ===== */
-    footer {
-      background: #000;
-      color: #fff;
-      padding: 60px 20px 30px;
-    }
-    .footer-grid {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1.2fr;
-      gap: 40px;
-      margin-bottom: 40px;
-    }
-    .footer-brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 16px;
-    }
-    .footer-brand .icon {
-      width: 40px;
-      height: 40px;
-      background: #fff;
-      color: #000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-    }
-    .footer-brand h3 {
-      font-size: 22px;
-      font-weight: 900;
-    }
-    .footer-brand p {
-      font-size: 14px;
-      color: #aaa;
-      line-height: 1.5;
-      max-width: 280px;
-    }
-    .footer-col h4 {
-      font-size: 16px;
-      font-weight: 800;
-      margin-bottom: 16px;
-      letter-spacing: 1px;
-    }
-    .footer-col ul {
-      list-style: none;
-    }
-    .footer-col li {
-      margin-bottom: 10px;
-    }
-    .footer-col a {
-      color: #ccc;
-      text-decoration: none;
-      font-size: 15px;
-    }
-    .footer-col a:hover { color: #fff; }
-
-    .newsletter p {
-      font-size: 14px;
-      color: #aaa;
-      margin-bottom: 16px;
-      line-height: 1.5;
-    }
-    .newsletter input {
-      width: 100%;
-      padding: 14px;
-      border: 2px solid #444;
-      background: transparent;
-      color: #fff;
-      font-size: 15px;
-      margin-bottom: 12px;
-      font-family: inherit;
-    }
-    .newsletter input::placeholder { color: #888; }
-    .newsletter button {
-      width: 100%;
-      background: #fbbf24;
-      color: #000;
-      font-weight: 800;
-      font-size: 16px;
-      padding: 14px;
-      border: none;
-      cursor: pointer;
-      font-family: inherit;
-    }
-    .newsletter button:hover { background: #f59e0b; }
-
-    .footer-bottom {
-      max-width: 1100px;
-      margin: 0 auto;
-      border-top: 1px solid #333;
-      padding-top: 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 13px;
-      color: #888;
-    }
-    .footer-bottom a {
-      color: #888;
-      text-decoration: none;
-      margin-left: 20px;
-    }
-    .footer-bottom a:hover { color: #fff; }
-
-    /* ===== Responsive ===== */
-    @media (max-width: 1024px) {
-      .hero-container,
-      .articles-grid,
-      .authors-grid,
-      .community-grid,
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
-      .hero-title { font-size: 52px; }
-      nav { display: none; }
-      .article-inner { flex-direction: column; }
-      .article-img { width: 100%; height: 180px; }
-    }
-    @media (max-width: 640px) {
-      .hero-title { font-size: 40px; }
-      .section-header h2,
-      #authors h2,
-      #community h2 { font-size: 32px; }
-      .hero-btns { flex-direction: column; }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <!-- HEADER -->
-  <header>
-    <div class="header-inner">
+  <div class="dashboard">
+    <!-- Sidebar -->
+    <aside class="sidebar">
       <div class="logo">
-        <a href="#hero" style="text-decoration:none">
-          <span>The UX </span><span>Review</span>
+        <div class="logo-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+            <rect x="3" y="3" width="7" height="7" rx="1.5" fill="white"/>
+            <rect x="14" y="3" width="7" height="7" rx="1.5" fill="white"/>
+            <rect x="3" y="14" width="7" height="7" rx="1.5" fill="white"/>
+            <rect x="14" y="14" width="7" height="7" rx="1.5" fill="white"/>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <h1>مدبّر</h1>
+          <p>إدارة أموالك بذكاء</p>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="#" class="nav-item active">
+          <span class="nav-icon">🏠</span>
+          الصفحة الرئيسية
         </a>
-      </div>
-      <nav>
-        <ul>
-          <li><a href="#hero">HOME</a><i class="fa-solid fa-star star"></i></li>
-          <li><a href="#articles">LATEST ARTICLES</a><i class="fa-solid fa-star star"></i></li>
-          <li><a href="#authors">AUTHORS</a><i class="fa-solid fa-star star"></i></li>
-          <li><a href="#community">COMMUNITY</a></li>
-        </ul>
+        <a href="#" class="nav-item">
+          <span class="nav-icon">↔️</span>
+          المعاملات
+        </a>
+        <a href="#" class="nav-item">
+          <span class="nav-icon">📊</span>
+          الميزانيات
+        </a>
+        <a href="#" class="nav-item">
+          <span class="nav-icon">🐷</span>
+          المدخرات
+        </a>
+        <a href="#" class="nav-item">
+          <span class="nav-icon">📄</span>
+          الفواتير الشهرية
+        </a>
       </nav>
-      <a href="#community" class="subscribe-btn">SUBSCRIBE NOW</a>
-    </div>
-  </header>
 
-  <!-- HERO -->
-  <section id="hero">
-    <div class="diamond diamond-1"></div>
-    <div class="diamond diamond-2"></div>
-    <div class="hero-container">
-      <div>
-        <div class="trending-badge">🔥 TRENDING NOW</div>
-        <h1 class="hero-title">
-          <span class="black">BRUTAL</span><br>
-          <span class="red">THOUGHTS</span><br>
-          <span class="blue">BOLD IDEAS</span>
-        </h1>
-        <div class="hero-desc">
-          Raw, unfiltered content about tech, design, and culture. No sugar-coating, just pure truth that hits different.
+      <div class="quick-actions">
+        <h3>إجراءات سريعة</h3>
+        <button class="action-btn send">
+          <span>➤</span> إرسال أموال
+        </button>
+        <button class="action-btn add">
+          <span>+</span> إضافة أموال
+        </button>
+        <button class="action-btn pay">
+          <span>📄</span> دفع فاتورة
+        </button>
+        <button class="action-btn invest">
+          <span>📈</span> استثمار
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+      <!-- Header -->
+      <header class="header">
+        <div class="user-info">
+          <img src="https://i.pravatar.cc/80?img=12" alt="سيف أسامة" class="avatar" />
+          <div>
+            <h2>سيف أسامة</h2>
+            <span class="badge">حساب مميز</span>
+          </div>
         </div>
-        <div class="hero-btns">
-          <a href="#articles" class="btn-primary"><i class="fa-solid fa-rocket"></i> START READING</a>
-          <a href="#" class="btn-secondary"><i class="fa-solid fa-play"></i> WATCH INTRO</a>
+        <div class="header-actions">
+          <button class="icon-btn notification">
+            🔔
+            <span class="badge-count">2</span>
+          </button>
+          <button class="icon-btn">🔍</button>
         </div>
-      </div>
-      <div class="hero-image-wrap">
-        <img class="hero-image" src="https://images.unsplash.com/photo-1618005182384-a83febe0d804?w=600&h=450&fit=crop" alt="Abstract geometric art" />
-        <div class="featured-badge">FEATURED</div>
-      </div>
-    </div>
-  </section>
+        <div class="brand">
+          <span class="status">● متصل</span>
+          <div class="brand-logo">
+            <span>مدبّر</span>
+            <small>إدارة أموالك بذكاء</small>
+          </div>
+          <div class="brand-icon">▦</div>
+        </div>
+      </header>
 
-  <!-- LATEST ARTICLES -->
-  <section id="articles">
-    <div class="section-container">
-      <div class="section-header">
-        <h2>LATEST ARTICLES</h2>
-        <div class="fresh-badge">🔥 FRESH CONTENT</div>
-      </div>
+      <!-- Stats Cards -->
+      <section class="stats">
+        <div class="stat-card">
+          <span class="stat-label">المصروفات</span>
+          <div class="stat-value">10,000 <small>جنية</small></div>
+          <span class="stat-change down">1.2%- ↓</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">الدخل</span>
+          <div class="stat-value">15,000 <small>جنية</small></div>
+          <span class="stat-change up">8.2%+ ↑</span>
+        </div>
+        <div class="stat-card highlight">
+          <span class="stat-label">الرصيد الحالي</span>
+          <div class="stat-value">8,450 <small>جنية</small></div>
+          <span class="stat-change up">2.5%+ ↑</span>
+        </div>
+      </section>
 
-      <div class="articles-grid">
-        <div>
-          <!-- Article 1 -->
-          <article class="article-card">
-            <div class="article-inner">
-              <div class="article-img-wrap">
-                <img class="article-img" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=200&h=160&fit=crop" alt="Website design" />
-                <div class="tag-new">NEW</div>
+      <!-- Content Grid -->
+      <div class="content-grid">
+        <!-- Transactions -->
+        <section class="card transactions">
+          <div class="card-header">
+            <h3>المعاملات الأخيرة</h3>
+            <a href="#">عرض الكل ←</a>
+          </div>
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>المعاملة</th>
+                  <th>الفئة</th>
+                  <th>التاريخ</th>
+                  <th>الحالة</th>
+                  <th>المبلغ</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="tx-user">
+                      <img src="https://i.pravatar.cc/40?img=11" alt="" />
+                      <div>
+                        <strong>محمود النجار</strong>
+                        <span>تحويل أموال</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="tag income">دخل ↓</span></td>
+                  <td>١٤ أكتوبر ٢٠٢٥</td>
+                  <td><span class="status-badge complete">مكتمل</span></td>
+                  <td class="amount positive">+350 جنية</td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="tx-user">
+                      <div class="tx-icon food">🍴</div>
+                      <div>
+                        <strong>مطعم Meat moot</strong>
+                        <span>دفع مطعم</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="tag food">طعام 🍴</span></td>
+                  <td>14 أكتوبر، 2025</td>
+                  <td><span class="status-badge complete">مكتمل</span></td>
+                  <td class="amount negative">-2200 جنية</td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="tx-user">
+                      <div class="tx-icon shop">🛒</div>
+                      <div>
+                        <strong>مشتريات Amazon</strong>
+                        <span>تسوق إلكتروني</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="tag shop">تسوق 🛒</span></td>
+                  <td>13 أكتوبر، 2025</td>
+                  <td><span class="status-badge complete">مكتمل</span></td>
+                  <td class="amount negative">-1250 جنية</td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="tx-user">
+                      <img src="https://i.pravatar.cc/40?img=33" alt="" />
+                      <div>
+                        <strong>عمر المهدي</strong>
+                        <span>دفع فاتورة مقسمة</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="tag bill">فاتورة مقسمة</span></td>
+                  <td>13 أكتوبر، 2025</td>
+                  <td><span class="status-badge complete">مكتمل</span></td>
+                  <td class="amount negative">-1400 جنية</td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="tx-user">
+                      <img src="https://i.pravatar.cc/40?img=15" alt="" />
+                      <div>
+                        <strong>محمد عوض</strong>
+                        <span>دفع عمل حر</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="tag work">عمل 💼</span></td>
+                  <td>12 أكتوبر، 2025</td>
+                  <td><span class="status-badge complete">مكتمل</span></td>
+                  <td class="amount positive">+2500 جنية</td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="tx-user">
+                      <div class="tx-icon fuel">⛽</div>
+                      <div>
+                        <strong>محطة وقود Shell</strong>
+                        <span>شراء وقود</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="tag transport">مواصلات 🚗</span></td>
+                  <td>12 أكتوبر، 2025</td>
+                  <td><span class="status-badge pending">معلق</span></td>
+                  <td class="amount negative">-700 جنية</td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="tx-user">
+                      <div class="tx-icon netflix">🎬</div>
+                      <div>
+                        <strong>اشتراك Netflix</strong>
+                        <span>اشتراك شهري</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="tag fun">ترفيه 📺</span></td>
+                  <td>11 أكتوبر، 2025</td>
+                  <td><span class="status-badge complete">مكتمل</span></td>
+                  <td class="amount negative">-780 جنية</td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="tx-user">
+                      <div class="tx-icon gym">💪</div>
+                      <div>
+                        <strong>نادي FitLife</strong>
+                        <span>عضوية شهرية</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="tag health">صحة 💙</span></td>
+                  <td>10 أكتوبر، 2025</td>
+                  <td><span class="status-badge complete">مكتمل</span></td>
+                  <td class="amount negative">-500 جنية</td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="tx-user">
+                      <div class="tx-icon edu">🎓</div>
+                      <div>
+                        <strong>كورس Jonas</strong>
+                        <span>دورة تدريبية</span>
+                      </div>
+                    </div>
+                  </td>
+                  <td><span class="tag edu">تعليم 📚</span></td>
+                  <td>9 أكتوبر، 2025</td>
+                  <td><span class="status-badge complete">مكتمل</span></td>
+                  <td class="amount negative">-250 جنية</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Right Column -->
+        <div class="right-column">
+          <!-- Recent Activities -->
+          <section class="card activities">
+            <div class="card-header">
+              <h3>الأنشطة الحديثة</h3>
+            </div>
+            <div class="activity-item account">
+              <div class="activity-icon">👤+</div>
+              <div class="activity-content">
+                <strong>إنشاء حساب توفير جديد</strong>
+                <p>تم إنشاء حساب توفير بنك الأهلي بنجاح</p>
+                <span class="time">منذ ساعة واحدة</span>
               </div>
-              <div>
-                <span class="cat-badge cat-tech">TECH</span>
-                <h3>Why Your Website Needs More Edge</h3>
-                <p>Exploring the psychological impact of bold, unapologetic design choices on user engagement and brand perception in the digital age.</p>
-                <div class="meta">
-                  <span><i class="fa-solid fa-user"></i> BY ALEX BRUTAL</span>
-                  <span><i class="fa-solid fa-calendar"></i> JAN 8, 2025</span>
-                  <span><i class="fa-solid fa-clock"></i> 5 MIN READ</span>
-                  <span class="likes"><i class="fa-solid fa-heart"></i> 127</span>
+              <span class="activity-tag">حساب</span>
+            </div>
+            <div class="activity-item card-add">
+              <div class="activity-icon">💳</div>
+              <div class="activity-content">
+                <strong>إضافة بطاقة جديدة</strong>
+                <p>تمت إضافة بطاقة Visa الجديدة ****2847</p>
+                <span class="time">منذ 3 ساعات</span>
+              </div>
+              <span class="activity-tag">بطاقة</span>
+            </div>
+            <a href="#" class="view-all">عرض جميع الأنشطة (23)</a>
+          </section>
+
+          <!-- Monthly Bills -->
+          <section class="card bills">
+            <div class="card-header">
+              <h3>الفواتير الشهرية</h3>
+              <a href="#">عرض الكل ←</a>
+            </div>
+            <div class="bills-total">
+              <span class="total-amount">1920 جنية</span>
+              <span class="total-label">إجمالي الفواتير الشهرية</span>
+            </div>
+            <div class="bills-grid">
+              <div class="bill-item">
+                <div class="bill-icon electricity">⚡</div>
+                <div>
+                  <strong>كهرباء</strong>
+                  <span>400 جنية</span>
+                  <small>يستحق في 5 أيام</small>
+                </div>
+              </div>
+              <div class="bill-item">
+                <div class="bill-icon internet">📶</div>
+                <div>
+                  <strong>إنترنت</strong>
+                  <span>450 جنية</span>
+                  <small>يستحق في 3 أيام</small>
+                </div>
+              </div>
+              <div class="bill-item">
+                <div class="bill-icon netflix">🎬</div>
+                <div>
+                  <strong>Netflix</strong>
+                  <span>780 جنية</span>
+                  <small>يستحق في 15 يوم</small>
+                </div>
+              </div>
+              <div class="bill-item">
+                <div class="bill-icon phone">📞</div>
+                <div>
+                  <strong>هاتف</strong>
+                  <span>290 جنية</span>
+                  <small>يستحق في 10 أيام</small>
                 </div>
               </div>
             </div>
-          </article>
+          </section>
+        </div>
+      </div>
 
-          <!-- Article 2 -->
-          <article class="article-card">
-            <div class="article-inner">
-              <div class="article-img-wrap">
-                <img class="article-img" src="https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=200&h=160&fit=crop" alt="Typography" />
-                <div class="tag-hot">HOT</div>
+      <!-- Bottom Section -->
+      <div class="bottom-grid">
+        <!-- Payment Methods -->
+        <section class="card payment-methods">
+          <div class="card-header">
+            <h3>وسائل الدفع</h3>
+            <a href="#">إدارة ←</a>
+          </div>
+          <div class="cards-list">
+            <div class="payment-card visa">
+              <div class="card-top">
+                <span class="card-type">أساسية</span>
+                <span class="visa-logo">VISA</span>
               </div>
-              <div>
-                <span class="cat-badge cat-design">DESIGN</span>
-                <h3>Typography That Screams</h3>
-                <p>How to choose and implement bold typography that commands attention without sacrificing readability or user experience.</p>
-                <div class="meta">
-                  <span><i class="fa-solid fa-user"></i> BY Arnold Reeve</span>
-                  <span><i class="fa-solid fa-calendar"></i> JAN 6, 2025</span>
-                  <span><i class="fa-solid fa-clock"></i> 7 MIN READ</span>
-                  <span class="likes"><i class="fa-solid fa-heart"></i> 89</span>
+              <div class="card-number">4532 •••• •••• ••••</div>
+              <div class="card-bottom">
+                <div>
+                  <small>حامل البطاقة</small>
+                  <strong>سيف أسامة</strong>
+                </div>
+                <div>
+                  <small>تنتهي</small>
+                  <strong>12/26</strong>
                 </div>
               </div>
             </div>
-          </article>
-
-          <!-- Article 3 -->
-          <article class="article-card">
-            <div class="article-inner">
-              <div class="article-img-wrap">
-                <img class="article-img" src="https://images.unsplash.com/photo-1611162617474-5b21e11e480f?w=200&h=160&fit=crop" alt="Anti Instagram" />
-                <div class="tag-viral">VIRAL</div>
+            <div class="payment-card mastercard">
+              <div class="card-top">
+                <span class="mc-logo">●●</span>
               </div>
-              <div>
-                <span class="cat-badge cat-culture">CULTURE</span>
-                <h3>The Anti-Instagram Movement</h3>
-                <p>Young creators are abandoning polished feeds for raw, authentic content that celebrates imperfection and real human connection.</p>
-                <div class="meta">
-                  <span><i class="fa-solid fa-user"></i> BY MIKE EDGE</span>
-                  <span><i class="fa-solid fa-calendar"></i> JAN 4, 2025</span>
-                  <span><i class="fa-solid fa-clock"></i> 4 MIN READ</span>
-                  <span class="likes"><i class="fa-solid fa-heart"></i> 203</span>
+              <div class="card-number">8901 •••• •••• ••••</div>
+              <div class="card-bottom">
+                <div>
+                  <small>حامل البطاقة</small>
+                  <strong>سيف أسامة</strong>
+                </div>
+                <div>
+                  <small>تنتهي</small>
+                  <strong>08/27</strong>
                 </div>
               </div>
             </div>
-          </article>
-
-          <a href="#" class="load-more">+ LOAD MORE ARTICLES</a>
-        </div>
-
-        <!-- Sidebar -->
-        <div>
-          <div class="sidebar-card">
-            <h4>TRENDING NOW</h4>
-            <div class="trending-item">
-              <span class="trending-num num-1">01</span>
-              <div>
-                <h5>The Death of Minimalism</h5>
-                <p>12.5K reads • 🔥 Trending</p>
+            <div class="payment-card paypal">
+              <div class="card-top">
+                <span class="paypal-logo">PayPal</span>
               </div>
-            </div>
-            <div class="trending-item">
-              <span class="trending-num num-2">02</span>
-              <div>
-                <h5>Chaos as a Design System</h5>
-                <p>8.2K reads • ⚡ Rising</p>
-              </div>
-            </div>
-            <div class="trending-item">
-              <span class="trending-num num-3">03</span>
-              <div>
-                <h5>Digital Rebellion</h5>
-                <p>6.7K reads • 💥 Hot</p>
+              <div class="paypal-info">
+                <strong>حساب Paypal</strong>
+                <p>seif@example.com</p>
+                <span class="verified">● موثق</span>
               </div>
             </div>
           </div>
+        </section>
 
-          <div class="sidebar-card">
-            <h4>CATEGORIES</h4>
-            <div class="cat-list">
-              <span class="cat-tech-bg">TECH (24)</span>
-              <span class="cat-design-bg">DESIGN (18)</span>
-              <span class="cat-culture-bg">CULTURE (15)</span>
-              <span class="cat-opinion-bg">OPINION (12)</span>
-              <span class="cat-tutorials-bg">TUTORIALS (9)</span>
+        <!-- Chart -->
+        <section class="card chart-section">
+          <div class="card-header">
+            <h3>الدخل مقابل المصروفات</h3>
+            <a href="#">التحليل ←</a>
+          </div>
+          <div class="chart-legend">
+            <span class="legend income">■ الدخل</span>
+            <span class="legend expense">■ المصروفات</span>
+          </div>
+          <div class="bar-chart">
+            <div class="bar-group">
+              <div class="bars">
+                <div class="bar income" style="height: 70%"></div>
+                <div class="bar expense" style="height: 45%"></div>
+              </div>
+              <span>الأسبوع 1</span>
+            </div>
+            <div class="bar-group">
+              <div class="bars">
+                <div class="bar income" style="height: 85%"></div>
+                <div class="bar expense" style="height: 40%"></div>
+              </div>
+              <span>الأسبوع 2</span>
+            </div>
+            <div class="bar-group">
+              <div class="bars">
+                <div class="bar income" style="height: 90%"></div>
+                <div class="bar expense" style="height: 50%"></div>
+              </div>
+              <span>الأسبوع 3</span>
+            </div>
+            <div class="bar-group">
+              <div class="bars">
+                <div class="bar income" style="height: 75%"></div>
+                <div class="bar expense" style="height: 55%"></div>
+              </div>
+              <span>الأسبوع 4</span>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
+        </section>
 
-  <!-- AUTHORS -->
-  <section id="authors">
-    <h2>MEET THE AUTHORS</h2>
-    <p class="subtitle">The rebels behind the brutal truth</p>
-    <div class="underline"></div>
-
-    <div class="authors-grid">
-      <div class="author-card author-1">
-        <div class="author-img-wrap">
-          <img class="author-img" src="https://randomuser.me/api/portraits/men/32.jpg" alt="Alex Brutal" />
-          <div class="author-badge badge-founder">FOUNDER</div>
-        </div>
-        <h3>ALEX BRUTAL</h3>
-        <p class="author-role">Tech Critic & Design Rebel</p>
-        <p class="author-bio">Destroying conventional wisdom one article at a time. 10+ years fighting the good fight against boring design and corporate BS.</p>
-        <div class="socials">
-          <a href="#"><i class="fa-brands fa-twitter"></i></a>
-          <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-          <a href="#"><i class="fa-brands fa-instagram"></i></a>
-        </div>
-      </div>
-
-      <div class="author-card author-2">
-        <div class="author-img-wrap">
-          <img class="author-img" src="https://randomuser.me/api/portraits/men/75.jpg" alt="Arnold Reeve" />
-          <div class="author-badge badge-lead">LEAD</div>
-        </div>
-        <h3>Arnold Reeve</h3>
-        <p class="author-role">UX Anarchist & Visual Provocateur</p>
-        <p class="author-bio">Challenging design norms and creating chaos that actually works. Former corporate designer turned rebel with a cause.</p>
-        <div class="socials">
-          <a href="#"><i class="fa-brands fa-twitter"></i></a>
-          <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-          <a href="#"><i class="fa-brands fa-instagram"></i></a>
-        </div>
-      </div>
-
-      <div class="author-card author-3">
-        <div class="author-img-wrap">
-          <img class="author-img" src="https://randomuser.me/api/portraits/men/22.jpg" alt="Mike Edge" />
-          <div class="author-badge badge-viral">VIRAL</div>
-        </div>
-        <h3>MIKE EDGE</h3>
-        <p class="author-role">Cultural Critic & Trend Destroyer</p>
-        <p class="author-bio">Dissecting digital culture and exposing the truth behind viral trends. No filter, just facts that cut through the noise.</p>
-        <div class="socials">
-          <a href="#"><i class="fa-brands fa-twitter"></i></a>
-          <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-          <a href="#"><i class="fa-brands fa-instagram"></i></a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- COMMUNITY -->
-  <section id="community">
-    <h2>JOIN THE REBELLION</h2>
-    <p class="subtitle">Where rebels gather to change the digital world</p>
-    <div class="underline"></div>
-
-    <div class="community-grid">
-      <div class="community-left">
-        <h3>BECOME PART OF SOMETHING BIGGER</h3>
-        <div class="community-box">
-          Join thousands of designers, developers, and digital rebels who are tired of the same old boring content. Our community is where raw ideas meet bold execution and real change happens.
-        </div>
-        <ul class="benefits">
-          <li>
-            <span class="benefit-icon icon-red"><i class="fa-solid fa-check"></i></span>
-            Weekly brutal insights newsletter with exclusive content
-          </li>
-          <li>
-            <span class="benefit-icon icon-blue"><i class="fa-brands fa-discord"></i></span>
-            Exclusive community Discord access for real-time discussions
-          </li>
-          <li>
-            <span class="benefit-icon icon-purple"><i class="fa-solid fa-star"></i></span>
-            Early access to new articles before they go public
-          </li>
-          <li>
-            <span class="benefit-icon icon-green"><i class="fa-solid fa-pen"></i></span>
-            Submit your own brutal takes and get featured
-          </li>
-        </ul>
-        <a href="#" class="join-btn"><i class="fa-solid fa-rocket"></i> JOIN NOW - IT'S FREE</a>
-      </div>
-
-      <div>
-        <h3 style="font-size:26px;font-weight:900;margin-bottom:20px">WHAT REBELS ARE SAYING</h3>
-        
-        <div class="testimonial pink">
-          <p>"Finally, a blog that tells it like it is. No corporate BS, just pure truth about what's really happening in tech. This is the wake-up call our industry needed."</p>
-          <div class="testimonial-author">
-            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Mark T." />
+        <!-- Account Summary -->
+        <section class="card account-summary">
+          <div class="card-header">
+            <h3>ملخص الحساب</h3>
+            <a href="#">التفاصيل ←</a>
+          </div>
+          <div class="account-item">
+            <div class="acc-icon bank">🏦</div>
             <div>
-              <strong>Mark T.</strong>
-              <span>Senior Designer at Meta</span>
+              <strong>حساب جاري</strong>
+              <span>بنك مصر [•••• 4532]</span>
             </div>
+            <div class="acc-balance">8,450 جنية</div>
           </div>
-        </div>
-
-        <div class="testimonial blue">
-          <p>"The UX Review changed how I think about design. It's raw, honest, and exactly what our industry needs. Every article challenges my assumptions."</p>
-          <div class="testimonial-author">
-            <img src="https://randomuser.me/api/portraits/men/36.jpg" alt="Alex M." />
+          <div class="account-item">
+            <div class="acc-icon save">🐷</div>
             <div>
-              <strong>ALEX M.</strong>
-              <span>Lead Developer at Stripe</span>
+              <strong>حساب التوفير</strong>
+              <span>بنك مصر [•••• 8901]</span>
             </div>
+            <div class="acc-balance">297,540 جنية</div>
           </div>
-        </div>
-
-        <div class="testimonial purple">
-          <p>"The most authentic voice in digital culture. Every article challenges my assumptions and makes me think differently about the work I do."</p>
-          <div class="testimonial-author">
-            <img src="https://randomuser.me/api/portraits/men/52.jpg" alt="James K." />
+          <div class="account-item credit">
+            <div class="acc-icon credit-card">💳</div>
             <div>
-              <strong>James K.</strong>
-              <span>Creative Director at Adobe</span>
+              <strong>بطاقة ائتمان</strong>
+              <span>متاح: 1,850 جنية من 2,500 جنية</span>
+            </div>
+            <div class="acc-balance negative">-6,000 جنية</div>
+          </div>
+        </section>
+
+        <!-- Budget Overview -->
+        <section class="card budget-overview">
+          <div class="card-header">
+            <h3>نظرة عامة على الميزانية</h3>
+            <a href="#">التفاصيل ←</a>
+          </div>
+          <div class="budget-total">
+            <div>
+              <span class="label">إجمالي الميزانية</span>
+              <strong>10000 جنية</strong>
+            </div>
+            <div>
+              <span class="label">المتبقي</span>
+              <strong class="remaining">1750 جنية</strong>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
+          <div class="progress-main">
+            <div class="progress-bar">
+              <div class="fill" style="width: 82.5%"></div>
+            </div>
+            <span>المستخدم: 8250 جنية • 82.5%</span>
+          </div>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-grid">
-      <div>
-        <div class="footer-brand">
-          <div class="icon"><i class="fa-solid fa-pen-nib"></i></div>
-          <h3>THE UX REVIEW</h3>
-        </div>
-        <p>Raw, unfiltered thoughts on tech, design, and digital culture. No compromise, no corporate speak, just brutal truth that matters.</p>
+          <div class="budget-categories">
+            <div class="budget-cat">
+              <div class="cat-header">
+                <span class="cat-icon fun">🎬</span>
+                <strong>ترفيه</strong>
+                <span>750 جنية</span>
+              </div>
+              <div class="progress-bar small">
+                <div class="fill orange" style="width: 50%"></div>
+              </div>
+              <small>الميزانية: 1500 جنية • متبقي 50%</small>
+            </div>
+            <div class="budget-cat">
+              <div class="cat-header">
+                <span class="cat-icon bill">📄</span>
+                <strong>فواتير</strong>
+                <span>2000 جنية</span>
+              </div>
+              <div class="progress-bar small">
+                <div class="fill red" style="width: 100%"></div>
+              </div>
+              <small>الميزانية: 2000 جنية • مستخدم 100%</small>
+            </div>
+            <div class="budget-cat">
+              <div class="cat-header">
+                <span class="cat-icon care">❤️</span>
+                <strong>العناية الشخصية</strong>
+                <span>1200 جنية</span>
+              </div>
+              <div class="progress-bar small">
+                <div class="fill pink" style="width: 80%"></div>
+              </div>
+              <small>الميزانية: 1500 جنية • متبقي 20%</small>
+            </div>
+            <div class="budget-cat">
+              <div class="cat-header">
+                <span class="cat-icon home">🛒</span>
+                <strong>مستلزمات المنزل</strong>
+                <span>4300 جنية</span>
+              </div>
+              <div class="progress-bar small">
+                <div class="fill green" style="width: 86%"></div>
+              </div>
+              <small>الميزانية: 5000 جنية • متبقي 14%</small>
+            </div>
+          </div>
+        </section>
       </div>
-
-      <div class="footer-col">
-        <h4>CATEGORIES</h4>
-        <ul>
-          <li><a href="#">TECH</a></li>
-          <li><a href="#">DESIGN</a></li>
-          <li><a href="#">CULTURE</a></li>
-          <li><a href="#">OPINION</a></li>
-          <li><a href="#">TUTORIALS</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col newsletter">
-        <h4>NEWSLETTER</h4>
-        <p>Get brutal insights delivered weekly. No spam, just truth that cuts through the noise.</p>
-        <input type="email" placeholder="YOUR EMAIL ADDRESS" />
-        <button>SUBSCRIBE</button>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <div>© 2025 The UX Review. ALL RIGHTS RESERVED. STAY BRUTAL.</div>
-      <div>
-        <a href="#">PRIVACY POLICY</a>
-        <a href="#">TERMS OF USE</a>
-        <a href="#">COOKIE POLICY</a>
-      </div>
-    </div>
-  </footer>
-
+    </main>
+  </div>
 </body>
 </html>
