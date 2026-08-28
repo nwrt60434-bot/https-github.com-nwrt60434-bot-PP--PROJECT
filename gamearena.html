@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GameArena</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Days+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="gamearena.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <i class="fa-solid fa-gamepad"></i>
+        GameArena
+      </div>
+      <nav>
+        <a href="#hero" class="active">Home</a>
+        <a href="#latest-games">OUR GAMES</a>
+        <a href="#what-we-do">What We Do</a>
+        <a href="#team-members">Our Team</a>
+        <a href="#contact">Contact Us</a>
+      </nav>
+      <div class="header-right">
+        <i class="fa-regular fa-bell"></i>
+        <i class="fa-regular fa-comment"></i>
+        <button class="btn-signin">Sign In</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>THE ULTIMATE <span>GAMING</span> EXPERIENCE</h1>
+        <p>Join millions of gamers worldwide in the most competitive eSports tournaments. Experience next-level gaming with cutting-edge technology and endless possibilities.</p>
+        <div class="hero-btns">
+          <button class="btn-primary">Start Gaming Now</button>
+          <button class="btn-outline">Watch Tournaments</button>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="https://game-arena-theta.vercel.app/assets/hero-img-C0b4IWtS.png" alt="Gaming Setup">
+        <div class="players-badge">
+          <i class="fa-solid fa-trophy"></i>
+          <div>
+            <span>Active Players</span>
+            <strong>2.5M+</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR GAMES -->
+  <section id="latest-games">
+    <div class="section-header">
+      <div class="section-label">OUR GAMES</div>
+      <h2>Our Latest Games</h2>
+    </div>
+
+    <div class="games-carousel" id="gamesCarousel">
+      <div class="game-card">
+        <img src="https://game-arena-theta.vercel.app/assets/latest-games-1-CfV33bjK.png" alt="Alien Companions">
+        <div class="overlay"></div>
+        <div class="tags">
+          <span><i class="fa-solid fa-compass"></i> ADVENTURE</span>
+          <span><i class="fa-solid fa-users"></i> MULTIPLAYER</span>
+        </div>
+        <div class="title"><h3>Alien Companions</h3></div>
+      </div>
+      <div class="game-card">
+        <img src="https://game-arena-theta.vercel.app/assets/latest-games-2-DcGt1MOH.png" alt="Cyber Run 2099">
+        <div class="overlay"></div>
+        <div class="tags">
+          <span><i class="fa-solid fa-flag-checkered"></i> RACING</span>
+          <span><i class="fa-solid fa-bolt"></i> SCI-FI</span>
+        </div>
+        <div class="title"><h3>Cyber Run 2099</h3></div>
+      </div>
+      <div class="game-card">
+        <img src="https://game-arena-theta.vercel.app/assets/latest-games-3-3PuaZ95E.png" alt="The Legend of Zelda">
+        <div class="overlay"></div>
+        <div class="tags">
+          <span><i class="fa-solid fa-gamepad"></i> ACTION</span>
+          <span><i class="fa-solid fa-microchip"></i> GEFORCE</span>
+        </div>
+        <div class="title"><h3>The Legend of Zelda: Tears of the Kingdom</h3></div>
+      </div>
+      <div class="game-card">
+        <img src="https://game-arena-theta.vercel.app/assets/latest-games-4-DCWGKdgP.png" alt="Aetheria Chronicles">
+        <div class="overlay"></div>
+        <div class="tags">
+          <span><i class="fa-solid fa-shield"></i> RPG</span>
+          <span><i class="fa-solid fa-wand-magic-sparkles"></i> FANTASY</span>
+        </div>
+        <div class="title"><h3>Aetheria Chronicles</h3></div>
+      </div>
+      <div class="game-card">
+        <img src="https://game-arena-theta.vercel.app/assets/latest-games-5-D0uhM4CW.png" alt="Warfront Protocol">
+        <div class="overlay"></div>
+        <div class="tags">
+          <span><i class="fa-solid fa-crosshairs"></i> SHOOTER</span>
+          <span><i class="fa-solid fa-users"></i> CO-OP</span>
+        </div>
+        <div class="title"><h3>Warfront Protocol</h3></div>
+      </div>
+      <div class="game-card">
+        <img src="https://game-arena-theta.vercel.app/assets/latest-games-6-CJaIm3nW.png" alt="Shot Striker">
+        <div class="overlay"></div>
+        <div class="tags">
+          <span><i class="fa-solid fa-futbol"></i> FOOTBALL</span>
+          <span><i class="fa-solid fa-star"></i> FANTASY</span>
+        </div>
+        <div class="title"><h3>Shot Striker</h3></div>
+      </div>
+      <div class="game-card">
+        <img src="https://game-arena-theta.vercel.app/assets/latest-games-7-C9aSwQWa.png" alt="Epic Gaming League">
+        <div class="overlay"></div>
+        <div class="tags">
+          <span><i class="fa-solid fa-trophy"></i> SPORTS</span>
+          <span><i class="fa-solid fa-fire"></i> LEAGUE</span>
+        </div>
+        <div class="title"><h3>Epic Gaming League</h3></div>
+      </div>
+      <div class="game-card">
+        <img src="https://game-arena-theta.vercel.app/assets/latest-games-8-CDS2WV4Q.png" alt="Barren alien worlds">
+        <div class="overlay"></div>
+        <div class="tags">
+          <span><i class="fa-solid fa-rocket"></i> SPACE</span>
+          <span><i class="fa-solid fa-globe"></i> EXPLORATION</span>
+        </div>
+        <div class="title"><h3>Barren alien worlds</h3></div>
+      </div>
+      <div class="game-card">
+        <img src="https://game-arena-theta.vercel.app/assets/latest-games-9-BhBeVXRH.png" alt="Cloveland Quest">
+        <div class="overlay"></div>
+        <div class="tags">
+          <span><i class="fa-solid fa-bolt"></i> ACTION</span>
+          <span><i class="fa-solid fa-robot"></i> FUTURISTIC</span>
+        </div>
+        <div class="title"><h3>Cloveland Quest</h3></div>
+      </div>
+    </div>
+
+    <div class="carousel-controls">
+      <button onclick="document.getElementById('gamesCarousel').scrollBy({left: -340, behavior: 'smooth'})">
+        <i class="fa-solid fa-arrow-left"></i>
+      </button>
+      <button onclick="document.getElementById('gamesCarousel').scrollBy({left: 340, behavior: 'smooth'})">
+        <i class="fa-solid fa-arrow-right"></i>
+      </button>
+      <button class="btn-view-all">VIEW ALL GAMES</button>
+    </div>
+  </section>
+
+  <!-- WHAT WE DO -->
+  <section id="what-we-do">
+    <div class="section-header">
+      <div class="section-label">WHAT WE DO</div>
+    </div>
+    <div class="what-we-do-title">
+      <h2>More Than Just Games<br>We Build <span>Interactive</span> Journeys</h2>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="icon"><i class="fa-solid fa-desktop"></i></div>
+        <h3>PC Game<br>Development</h3>
+      </div>
+      <div class="service-card">
+        <div class="icon"><i class="fa-solid fa-mobile-screen"></i></div>
+        <h3>Mobile Game<br>Development</h3>
+      </div>
+      <div class="service-card active">
+        <img src="https://game-arena-theta.vercel.app/assets/what-we-do-1-DuZnkwGW.png" alt="Controllers">
+      </div>
+      <div class="service-card">
+        <div class="icon"><i class="fa-solid fa-vr-cardboard"></i></div>
+        <h3>AR/VR<br>Solutions</h3>
+      </div>
+      <div class="service-card">
+        <div class="icon"><i class="fa-solid fa-cubes"></i></div>
+        <h3>AR/VR<br>Design</h3>
+      </div>
+      <div class="service-card active">
+        <img src="https://game-arena-theta.vercel.app/assets/what-we-do-2-DVAo6agz.png" alt="Hero Character">
+      </div>
+      <div class="service-card">
+        <div class="icon"><i class="fa-brands fa-playstation"></i></div>
+        <h3>PS4 Game<br>Development</h3>
+      </div>
+      <div class="service-card">
+        <div class="icon"><i class="fa-solid fa-cube"></i></div>
+        <h3>3D<br>Modelings</h3>
+      </div>
+    </div>
+
+    <div class="logos-section">
+      <div class="logos-track">
+        <div class="logo-item"><img src="https://game-arena-theta.vercel.app/assets/logo-1-ByM-Sex8.jpg" alt=""></div>
+        <div class="logo-item"><img src="https://game-arena-theta.vercel.app/assets/logo-2-0gIktwSm.jpg" alt=""></div>
+        <div class="logo-item"><img src="https://game-arena-theta.vercel.app/assets/logo-3-CczztP90.jpg" alt=""></div>
+        <div class="logo-item"><img src="https://game-arena-theta.vercel.app/assets/logo-4-CqgtpirC.jpg" alt=""></div>
+        <div class="logo-item"><img src="https://game-arena-theta.vercel.app/assets/logo-5-DFypfU0k.jpg" alt=""></div>
+        <div class="logo-item"><img src="https://game-arena-theta.vercel.app/assets/logo-6-DcGD8G7v.jpg" alt=""></div>
+        <div class="logo-item"><img src="https://game-arena-theta.vercel.app/assets/logo-7-DSTdzFnp.jpg" alt=""></div>
+        <div class="logo-item"><img src="https://game-arena-theta.vercel.app/assets/logo-8-BuH3qQns.jpg" alt=""></div>
+        <div class="logo-item"><img src="https://game-arena-theta.vercel.app/assets/logo-9-btJ2eZYX.jpg" alt=""></div>
+        <div class="logo-item"><img src="https://game-arena-theta.vercel.app/assets/logo-10-DlvZwrGv.jpg" alt=""></div>
+        <!-- duplicate for infinite scroll -->
+        <div class="logo-item"><img src="https://game-arena-theta.vercel.app/assets/logo-1-ByM-Sex8.jpg" alt=""></div>
+        <div class="logo-item"><img src="https://game-arena-theta.vercel.app/assets/logo-2-0gIktwSm.jpg" alt=""></div>
+        <div class="logo-item"><img src="https://game-arena-theta.vercel.app/assets/logo-3-CczztP90.jpg" alt=""></div>
+        <div class="logo-item"><img src="https://game-arena-theta.vercel.app/assets/logo-4-CqgtpirC.jpg" alt=""></div>
+        <div class="logo-item"><img src="https://game-arena-theta.vercel.app/assets/logo-5-DFypfU0k.jpg" alt=""></div>
+        <div class="logo-item"><img src="https://game-arena-theta.vercel.app/assets/logo-6-DcGD8G7v.jpg" alt=""></div>
+        <div class="logo-item"><img src="https://game-arena-theta.vercel.app/assets/logo-7-DSTdzFnp.jpg" alt=""></div>
+        <div class="logo-item"><img src="https://game-arena-theta.vercel.app/assets/logo-8-BuH3qQns.jpg" alt=""></div>
+        <div class="logo-item"><img src="https://game-arena-theta.vercel.app/assets/logo-9-btJ2eZYX.jpg" alt=""></div>
+        <div class="logo-item"><img src="https://game-arena-theta.vercel.app/assets/logo-10-DlvZwrGv.jpg" alt=""></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section id="team-members">
+    <div class="section-header">
+      <div class="section-label">OUR TEAM</div>
+      <h2>Our Best Team Members</h2>
+      <p style="color:#888; margin-top:10px;">Meet the professional gamers and experts behind our success</p>
+    </div>
+
+    <div class="team-grid">
+      <div class="team-card">
+        <img src="https://game-arena-theta.vercel.app/assets/avatar-1-Bk0fx3lX.png" alt="Alex">
+        <div class="info">
+          <h3>Alex "Phantom" Chen</h3>
+          <p>Pro Player - VALORANT</p>
+          <p class="role">World Champion 2023</p>
+        </div>
+        <div class="tag">PHANTOM</div>
+      </div>
+      <div class="team-card">
+        <img src="https://game-arena-theta.vercel.app/assets/avatar-2-DSM5R69_.png" alt="Ali">
+        <div class="info">
+          <h3>Ali "Nova" Ahmed</h3>
+          <p>Pro Player - League of Legends</p>
+          <p class="role">MVP 2023 Season</p>
+        </div>
+        <div class="tag">NOVA</div>
+      </div>
+      <div class="team-card">
+        <img src="https://game-arena-theta.vercel.app/assets/avatar-3-CISh2V2J.png" alt="Marcus">
+        <div class="info">
+          <h3>Marcus "Viper" Rodriguez</h3>
+          <p>Head Coach - CS:GO</p>
+          <p class="role">5x Major Winner</p>
+        </div>
+        <div class="tag">VIPER</div>
+      </div>
+      <div class="team-card">
+        <img src="https://game-arena-theta.vercel.app/assets/avatar-4-BCbP093U.png" alt="Seif">
+        <div class="info">
+          <h3>Seif "Saga" Usama</h3>
+          <p>Strategic Analyst</p>
+          <p class="role">Data Science Expert</p>
+        </div>
+        <div class="tag">SAGA</div>
+      </div>
+      <div class="team-card">
+        <img src="https://game-arena-theta.vercel.app/assets/avatar-5-CKJm2Bjf.png" alt="Jake">
+        <div class="info">
+          <h3>Jake "Storm" Wilson</h3>
+          <p>Pro Player - Apex Legends</p>
+          <p class="role">Rising Star 2023</p>
+        </div>
+        <div class="tag">STORM</div>
+      </div>
+      <div class="team-card">
+        <img src="https://game-arena-theta.vercel.app/assets/avatar-6-BC4VdJS3.png" alt="David">
+        <div class="info">
+          <h3>David "Titan" Park</h3>
+          <p>Team Captain - Dota 2</p>
+          <p class="role">The International Winner</p>
+        </div>
+        <div class="tag">TITAN</div>
+      </div>
+      <div class="team-card">
+        <img src="https://game-arena-theta.vercel.app/assets/avatar-7-B1LKlfbK.png" alt="Khaled">
+        <div class="info">
+          <h3>Khaled "Phoenix" Ali</h3>
+          <p>Content Creator</p>
+          <p class="role">2M+ Followers</p>
+        </div>
+        <div class="tag">PHOENIX</div>
+      </div>
+      <div class="team-card">
+        <img src="https://game-arena-theta.vercel.app/assets/avatar-8-DlHfYIx6.png" alt="Ryan">
+        <div class="info">
+          <h3>Ryan "Ghost" Miller</h3>
+          <p>Team Manager</p>
+          <p class="role">Operations Lead</p>
+        </div>
+        <div class="tag">GHOST</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-header">
+      <div class="section-label">CONTACT US</div>
+      <h2>Get In Touch</h2>
+      <p style="color:#888; margin-top:10px;">Have questions or need support? We're here to help!</p>
+    </div>
+
+    <div class="contact-wrapper">
+      <div class="contact-info">
+        <div class="info-box">
+          <div class="icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div>
+            <h4>Our Location</h4>
+            <p>123 Gaming Street, Esports City, EC 12345</p>
+          </div>
+        </div>
+        <div class="info-box">
+          <div class="icon"><i class="fa-solid fa-phone"></i></div>
+          <div>
+            <h4>Phone Number</h4>
+            <p>+1 (555) 123-4567</p>
+          </div>
+        </div>
+        <div class="info-box">
+          <div class="icon"><i class="fa-solid fa-envelope"></i></div>
+          <div>
+            <h4>Email Address</h4>
+            <p>contact@gamearena.com</p>
+          </div>
+        </div>
+        <div class="community-box">
+          <h4>Join Our Community</h4>
+          <p>Connect with us on social media for the latest updates</p>
+          <div class="social-icons">
+            <a href="#"><i class="fa-brands fa-discord"></i></a>
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <h3>Send us a Message</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" placeholder="Your first name">
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" placeholder="Your last name">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="your.email@example.com">
+        </div>
+        <div class="form-group">
+          <label>Subject</label>
+          <select>
+            <option>General Inquiry</option>
+            <option>Tournament Support</option>
+            <option>Technical Issue</option>
+            <option>Partnership</option>
+            <option>Media Request</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea placeholder="Write your message here..."></textarea>
+        </div>
+        <div class="checkbox-group">
+          <input type="checkbox" id="newsletter">
+          <label for="newsletter">Subscribe to our newsletter for gaming updates</label>
+        </div>
+        <button class="btn-send">
+          Send Message <i class="fa-solid fa-paper-plane"></i>
+        </button>
+        <div class="support-stats">
+          <div>
+            <strong>24/7</strong>
+            <span>Support Available</span>
+          </div>
+          <div>
+            <strong>&lt;1hr</strong>
+            <span>Average Response</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo">
+          <i class="fa-solid fa-gamepad"></i>
+          GameArena
+        </div>
+        <p>The ultimate destination for competitive gaming, esports tournaments, and gaming community.</p>
+        <div class="footer-social">
+          <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-youtube"></i></a>
+          <a href="#"><i class="fa-brands fa-twitch"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Games</h4>
+        <a href="#">VALORANT</a>
+        <a href="#">League of Legends</a>
+        <a href="#">CS:GO</a>
+        <a href="#">Dota 2</a>
+        <a href="#">Apex Legends</a>
+      </div>
+      <div class="footer-col">
+        <h4>Tournaments</h4>
+        <a href="#">Upcoming Events</a>
+        <a href="#">Live Matches</a>
+        <a href="#">Results</a>
+        <a href="#">Rankings</a>
+        <a href="#">Schedule</a>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <a href="#">Help Center</a>
+        <a href="#">Contact Us</a>
+        <a href="#">Bug Reports</a>
+        <a href="#">Feature Requests</a>
+        <a href="#">Community Guidelines</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 GameArena. All rights reserved.</span>
+      <div>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Cookie Policy</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
