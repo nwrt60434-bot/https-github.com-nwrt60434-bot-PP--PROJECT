@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مدبر | تسوق بذكاء</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header class="header">
+    <div class="header-top">
+      <div class="logo" onclick="location.reload()">
+        <span class="logo-icon">م</span>
+        <div>
+          <div class="logo-text">مدبر</div>
+          <div class="logo-sub">تسوق بذكاء</div>
+        </div>
+      </div>
+
+      <div class="search-box">
+        <select id="searchCategory">
+          <option value="all">الكل</option>
+          <option value="electronics">إلكترونيات</option>
+          <option value="fashion">أزياء</option>
+          <option value="home">منزل</option>
+          <option value="books">كتب</option>
+          <option value="sports">رياضة</option>
+        </select>
+        <input type="text" id="searchInput" placeholder="ابحث في مدبر...">
+        <button id="searchBtn">🔍</button>
+      </div>
+
+      <div class="header-actions">
+        <div class="account">
+          <span>مرحباً</span>
+          <strong>حسابك</strong>
+        </div>
+        <div class="orders">
+          <span>الطلبات</span>
+          <strong>& المرتجعات</strong>
+        </div>
+        <div class="cart-btn" id="cartBtn">
+          <span class="cart-icon">🛒</span>
+          <span class="cart-count" id="cartCount">0</span>
+          <span>السلة</span>
+        </div>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <div class="nav-item active" data-cat="all">الكل</div>
+      <div class="nav-item" data-cat="electronics">إلكترونيات</div>
+      <div class="nav-item" data-cat="fashion">أزياء</div>
+      <div class="nav-item" data-cat="home">المنزل والمطبخ</div>
+      <div class="nav-item" data-cat="books">كتب</div>
+      <div class="nav-item" data-cat="sports">رياضة</div>
+      <div class="nav-item deals">عروض اليوم</div>
+    </nav>
+  </header>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>عروض مدبر الكبرى</h1>
+      <p>خصومات تصل إلى 70% على آلاف المنتجات</p>
+      <button class="hero-btn" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">تسوق الآن</button>
+    </div>
+  </section>
+
+  <!-- ========== FILTERS + PRODUCTS ========== -->
+  <main class="main">
+    <aside class="filters">
+      <h3>تصفية النتائج</h3>
+      
+      <div class="filter-group">
+        <h4>الفئة</h4>
+        <label><input type="radio" name="category" value="all" checked> الكل</label>
+        <label><input type="radio" name="category" value="electronics"> إلكترونيات</label>
+        <label><input type="radio" name="category" value="fashion"> أزياء</label>
+        <label><input type="radio" name="category" value="home"> منزل</label>
+        <label><input type="radio" name="category" value="books"> كتب</label>
+        <label><input type="radio" name="category" value="sports"> رياضة</label>
+      </div>
+
+      <div class="filter-group">
+        <h4>السعر</h4>
+        <label><input type="radio" name="price" value="all" checked> الكل</label>
+        <label><input type="radio" name="price" value="0-100"> أقل من 100 ج.م</label>
+        <label><input type="radio" name="price" value="100-500"> 100 - 500 ج.م</label>
+        <label><input type="radio" name="price" value="500-1000"> 500 - 1000 ج.م</label>
+        <label><input type="radio" name="price" value="1000+"> أكثر من 1000 ج.م</label>
+      </div>
+
+      <div class="filter-group">
+        <h4>التقييم</h4>
+        <label><input type="radio" name="rating" value="all" checked> الكل</label>
+        <label><input type="radio" name="rating" value="4"> ★★★★ فأكثر</label>
+        <label><input type="radio" name="rating" value="3"> ★★★ فأكثر</label>
+      </div>
+    </aside>
+
+    <section class="products-section" id="products">
+      <div class="section-header">
+        <h2>منتجات مميزة</h2>
+        <span id="resultsCount">24 نتيجة</span>
+      </div>
+      <div class="products-grid" id="productsGrid">
+        <!-- المنتجات تُضاف بواسطة JavaScript -->
+      </div>
+    </section>
+  </main>
+
+  <!-- ========== CART SIDEBAR ========== -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h2>سلة التسوق</h2>
+      <button class="close-cart" id="closeCart">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <p class="empty-cart">السلة فارغة</p>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>الإجمالي:</span>
+        <strong id="cartTotal">0 ج.م</strong>
+      </div>
+      <button class="checkout-btn" id="checkoutBtn">إتمام الشراء</button>
+    </div>
+  </aside>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-col">
+        <h4>تعرف على مدبر</h4>
+        <a href="#">من نحن</a>
+        <a href="#">الوظائف</a>
+        <a href="#">الصحافة</a>
+      </div>
+      <div class="footer-col">
+        <h4>الربح معنا</h4>
+        <a href="#">بيع على مدبر</a>
+        <a href="#">كن شريكاً</a>
+        <a href="#">الإعلان</a>
+      </div>
+      <div class="footer-col">
+        <h4>خدمة العملاء</h4>
+        <a href="#">حسابك</a>
+        <a href="#">المرتجعات</a>
+        <a href="#">المساعدة</a>
+      </div>
+      <div class="footer-col">
+        <h4>طرق الدفع</h4>
+        <a href="#">بطاقات الائتمان</a>
+        <a href="#">فوري</a>
+        <a href="#">الدفع عند الاستلام</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-logo">مدبر</div>
+      <p>© 2026 مدبر. جميع الحقوق محفوظة</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
